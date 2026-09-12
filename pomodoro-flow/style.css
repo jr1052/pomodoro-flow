@@ -1,0 +1,191 @@
+:root {
+  --bg: #16261f;
+  --card: #22243a;
+  --text: #e8e8f0;
+  --muted: #8a8ca8;
+  --accent: #ff6b6b;
+  --accent-soft: #4ecdc4;
+  --ring-bg: #33354f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  width: min(90vw, 380px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 1.25rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 0.4rem;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.5rem 0.4rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mode-btn.active {
+  background: var(--card);
+  color: var(--text);
+}
+
+.timer-ring {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1.5rem;
+}
+
+.timer-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg, .ring-progress {
+  fill: none;
+  stroke-width: 10;
+}
+
+.ring-bg { stroke: var(--ring-bg); }
+
+.ring-progress {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 565.5;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.3s linear, stroke 0.3s;
+}
+
+.time-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.controls button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.controls .primary {
+  background: var(--accent);
+  color: white;
+}
+
+.controls #resetBtn {
+  background: var(--ring-bg);
+  color: var(--text);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--ring-bg);
+  border-bottom: 1px solid var(--ring-bg);
+  padding: 1rem 0;
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.log h2 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: left;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.log li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+}
+
+.log li span:last-child {
+  color: var(--text);
+}
+
+.log li:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pomodoro Flow</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Pomodoro Flow</h1>
+
+    <div class="mode-tabs">
+      <button class="mode-btn active" data-mode="work">Focus</button>
+      <button class="mode-btn" data-mode="short">Short Break</button>
+      <button class="mode-btn" data-mode="long">Long Break</button>
+    </div>
+
+    <div class="timer-ring">
+      <svg viewBox="0 0 200 200">
+        <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
+        <circle class="ring-progress" cx="100" cy="100" r="90"></circle>
+      </svg>
+      <div class="time-display" id="timeDisplay">25:00</div>
+    </div>
+
+    <div class="controls">
+      <button id="startPauseBtn" class="primary">Start</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-value" id="todayCount">0</span>
+        <span class="stat-label">Today</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="streakCount">0</span>
+        <span class="stat-label">Day Streak</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="totalCount">0</span>
+        <span class="stat-label">All-Time</span>
+      </div>
+    </section>
+
+    <section class="log">
+      <h2>Recent Sessions</h2>
+      <ul id="logList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
